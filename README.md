@@ -33,7 +33,11 @@ Analyze phone numbers using the `phonenumbers` library:
 - Country parsing
 
 ---
-
+## Installqtion:
+bash
+```
+git clone https://github.com/richnet-maker/EvilEye.git
+```
 ## Requirements
 bash
 ```
