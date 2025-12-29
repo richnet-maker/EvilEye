@@ -2,7 +2,6 @@ import socket
 import os
 from _datetime import datetime
 import requests
-from bs4 import BeautifulSoup
 from phonenumbers import carrier, timezone, parse, is_valid_number
 
 
@@ -163,4 +162,5 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+
 
