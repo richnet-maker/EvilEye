@@ -41,7 +41,7 @@ git clone https://github.com/richnet-maker/EvilEye.git
 ## Requirements
 bash
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 - Python **3.x**
