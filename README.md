@@ -33,7 +33,8 @@ Analyze phone numbers:
 - Country
 
 ---
-## Installqtion:
+## Installation:
+LINUX:
 bash
 ```
 git clone https://github.com/richnet-maker/EvilEye.git
@@ -43,6 +44,11 @@ bash
 ```
 pip install -r requirements.txt
 ```
+
+WINDOWS:
+`Download the zip folder and extract`
+`open the extracted folder (EvilEye-main) open cmd and navigate to EilEye-main`
+
 
 - Python **3.x**
 - Internet connection (required for IP info lookup)
