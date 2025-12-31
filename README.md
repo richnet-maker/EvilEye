@@ -15,7 +15,7 @@ It provides basic tools for network scanning and information gathering such as p
 - Displays scan time and results in real-time
 
 ### 🌐 IP Address Information
-Fetch detailed IP information using the `ipinfo.io` API:
+Fetch detailed:
 - IP address
 - Hostname
 - City & Region
@@ -26,11 +26,11 @@ Fetch detailed IP information using the `ipinfo.io` API:
 - Timezone
 
 ### 📱 Phone Number Information
-Analyze phone numbers using the `phonenumbers` library:
+Analyze phone numbers:
 - Validity check
 - Carrier name
 - Timezone(s)
-- Country parsing
+- Country
 
 ---
 ## Installqtion:
