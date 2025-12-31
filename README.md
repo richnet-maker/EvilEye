@@ -39,11 +39,6 @@ bash
 ```
 git clone https://github.com/richnet-maker/EvilEye.git
 ```
-## Requirements
-bash
-```
-pip install -r requirements.txt
-```
 
 WINDOWS:
 `Download the zip folder and extract`
@@ -56,12 +51,19 @@ ___
 ## RUN:
 Linux
 ```
+pip install -r requirements.txt
+```
+
+```
 python3 EvilEye.py
 ```
 
 WINDOWS NT
 ```
+pip install -r requirements.txt
+```
+
+```
 python EvilEye.py
 ```
-```bash
-pip install requests phonenumbers
+
