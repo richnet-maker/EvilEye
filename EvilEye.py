@@ -150,10 +150,13 @@ while True:
             ipinfo()
             break_validation()
 
-        elif prmt == "4":
+        elif prmt == "3":
             clear_inter()
             phonenumber()
             break_validation()
+
+        else:
+            print("[+] INVALID INPUT!!")
 
  
 
@@ -162,5 +165,6 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+
 
 
