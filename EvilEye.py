@@ -81,7 +81,8 @@ def ipinfo():
 
 
     target_ip = input("[+] Input Your Target IP: ")
-    reqst = requests.get(f"https://ipinfo.io/{target_ip}/json")
+    url_ip = socket.gethostbyname(target_ip)
+    reqst = requests.get(f"https://ipinfo.io/{url_ip}/json")
     resp = reqst.status_code
     if resp == 200:
         data = reqst.json()
@@ -165,6 +166,7 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+
 
 
 
