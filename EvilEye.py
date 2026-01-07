@@ -4,7 +4,7 @@ from _datetime import datetime
 import requests
 from phonenumbers import carrier, timezone, parse, is_valid_number
 from bs4 import BeautifulSoup
-from urllib.parse import urlsplit, urljoin
+from urllib.parse import urlsplit, urljoin,urlparse
 
 
 
@@ -20,7 +20,9 @@ logo = """
     '.   ()       ()        .'
       '-.             () .-'
           '-._______.-'
-                  Dev: RichNet
+                     
+                 Dev: RichNet(N3TIX)
+        Warning: This tool is for EDUCATIONAL intent        
 """
 
 
@@ -40,26 +42,28 @@ def break_validation():
 
 
 def ports_scan():
-    print("""\033[40m
+    print("""\033[5;32m
 ┌─────────────────────────────┐
 │   P O R T  S C A N N E R    │
 ├─────────────────────────────┤
 │  ▸ scanning…                │
 │  ▸ checking open ports      │
 └─────────────────────────────┘
-\033[0m        Dev: RichNet
-
+\033[0m
+NETWORK port scanning tool
+     Dev: RichNet(N3TIX)
+Warning: This tool is for EDUCATIONAL intent\033[0m
 """)
     try:
         url = input("[+] Input URL/IP Address: ")
         host = socket.gethostbyname(url)
-        print(f"[+] scanning open ports on  {url} IP: {host} ......\n[+] Scanning Time: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}")
+        print(f"[+] scanning open ports on  {url} IP: {host} ......\n[+] Scanning Time: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
+        #sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
         for port in range(20,1000):
             sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
             conn = sock.connect_ex((host,port))
             sock.settimeout(0.2)
             if conn == 0:
-                print("\n")
                 print(f"PORT TCP\\{port} :  Open")
     except socket.gaierror:
         print("check your internet connection and try again")
@@ -133,7 +137,7 @@ Valid : {valid}
 """)
 
 
-def subdomain():
+def urlscrapper():
     try:
         try:
             logo = """\033[1;32m
@@ -163,6 +167,47 @@ def subdomain():
         print("[+] Can't connect to server; CHECK INTERNET CONNECTION!!")
 
 
+def sub_domain(a,b):
+    try:
+        parse = urlparse(url)
+        domain = parse.netloc
+        with open(wordlist,"r") as f:
+            words = f.read()
+            word = words.split()
+            for wd in word:
+                join_sub = parse.netloc.replace("www",wd)
+                full_url = parse.scheme+"://"+join_sub
+                try:
+                    request = requests.get(full_url,timeout=2)
+                    status = request.status_code
+                    if status == 200:
+                        with open("result.txt","a") as x:
+                            x.write(full_url+"\n")
+                        print("\033[1;36m"+full_url+"\033[0m")
+                    else:
+                        pass
+                except requests.exceptions.ConnectionError:
+                    pass
+                except requests.exceptions.ReadTimeout:
+                    pass
+    except KeyboardInterrupt:
+        print("[+] Programme interupted!!")
+    except requests.exceptions.InvalidSchema:
+        print("[+]INVALID INPUT!!")
+
+sub_logo = """\033[5;36m
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~               ____            _  __          _    __        ~
+~ ___   _   _  | __ )          | |/ /  _ __   (_)  / _|   ___ ~
+~/ __| | | | | |  _ \   _____  | ' /  | '_ \  | | | |_   / _ \~
+~\__ \ | |_| | | |_) | |_____| | . \  | | | | | | |  _| |  __/~
+~|___/  \__,_| |____/          |_|\_\ |_| |_| |_| |_|    \___|~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\033[0mD
+             \033[3;35mSub-Domain Brute FORCING tool
+                 Dev: RichNet(N3TIX)
+        Warning: This tool is for EDUCATIONAL intent\033[0m
+"""
+
 
 
 
@@ -171,7 +216,7 @@ while True:
     try:
         clear_inter()
         print("\033[33m",logo+"\033[0m")
-        print("\033[36m"+"[1] Scan Network Ports\n[2] IP Address Info\n[3] Phone-Number Info\n[4] SUBdomain discovere\n[5] EXIT"+"\033[0m")
+        print("\033[36m"+"[1] Scan Network Ports\n[2] IP Address Info\n[3] Phone-Number Info\n[4] url discovere\n[5] Sub-Domain Discovery\n[6] EXIT"+"\033[0m")
         prmt = input("[+] Select from the options above: ")
         if prmt == "1":
             clear_inter()
@@ -190,13 +235,21 @@ while True:
 
         elif prmt == "4":
             clear_inter()
-            subdomain() 
+            urlscrapper() 
             break_validation()
 
         elif prmt == "5":
+            clear_inter()
+            print(sub_logo)
+            if __name__=="__main__":
+                url = input("[+] Input/Paste your URL: ")
+                wordlist = "wordlist.txt"
+                sub_domain(url,wordlist)
+                break_validation()
+
+
+        elif prmt == "6":
             exit()
-
-
  
 
     except KeyboardInterrupt:
