@@ -31,6 +31,8 @@ Analyze phone numbers:
 - Carrier name
 - Timezone(s)
 - Country
+
+## URL Scrapping
 ## Subdomain discovery
 ---
 ## Installation:
