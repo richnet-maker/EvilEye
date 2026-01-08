@@ -54,17 +54,22 @@ NETWORK port scanning tool
      Dev: RichNet(N3TIX)
 Warning: This tool is for EDUCATIONAL intent\033[0m
 """)
+    p ="Port"
+    state = "Status"
     try:
         url = input("[+] Input URL/IP Address: ")
         host = socket.gethostbyname(url)
         print(f"[+] scanning open ports on  {url} IP: {host} ......\n[+] Scanning Time: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
-        #sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-        for port in range(20,1000):
+        print("\n"+"-"*32)
+        print(f"{p:>10}:{state:>10}")
+        print("-"*32)
+        for port in range(20,5000):
             sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-            conn = sock.connect_ex((host,port))
             sock.settimeout(0.2)
+            conn = sock.connect_ex((host,port))
+            sock.close()
             if conn == 0:
-                print(f"PORT TCP\\{port} :  Open")
+                print(f"PORT TCP\\{port:>3} :  Open")
     except socket.gaierror:
         print("check your internet connection and try again")
     except KeyboardInterrupt:
@@ -257,3 +262,6 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+
+
+
