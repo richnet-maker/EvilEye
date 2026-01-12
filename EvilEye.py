@@ -57,7 +57,7 @@ Warning: This tool is for EDUCATIONAL intent\033[0m
     p ="Port"
     state = "Status"
     try:
-        url = input("[+] Input domain "www.example.com"/IP Address: ")
+        url = input("[+] Input domain 'www.example.com'/IP Address: ")
         host = socket.gethostbyname(url)
         print(f"[+] scanning open ports on  {url} IP: {host} ......\n[+] Scanning Time: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}\n")
         print("\n"+"-"*24)
@@ -263,6 +263,7 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+
 
 
 
