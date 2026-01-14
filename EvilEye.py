@@ -263,6 +263,7 @@ while True:
         exit()
     except EOFError:
         print("programme Terminated")
+        break
 
 
 
