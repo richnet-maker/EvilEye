@@ -65,7 +65,7 @@ Warning: This tool is for EDUCATIONAL intent\033[0m
         print("-"*24)
         for port in range(20,1001):
             sock = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
-            sock.settimeout(0.1)
+            sock.settimeout(0.5)
             conn = sock.connect_ex((host,port))
             sock.close()
             if conn == 0:
